@@ -12,17 +12,15 @@ env:
   AZURE_WEBAPP_NAME: sydorchuksofia-ttt-app
 
 jobs:
-  setup-up-azure-resources:
+  setup-azure-resources:
     runs-on: ubuntu-latest
     if: contains(github.event.pull_request.labels.*.name, 'spin up environment')
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Azure login
-        uses: azure/login@v2
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Simulate Azure login
+        run: echo "skip"
 
       - name: Create Azure resource group
         run: echo "skip"
@@ -44,10 +42,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Azure login
-        uses: azure/login@v2
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: Destroy Azure environment
+      - name: Simulate destroy environment
         run: echo "skip"
+    
