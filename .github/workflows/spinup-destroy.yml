@@ -44,3 +44,4 @@ jobs:
 
       - name: Simulate destroy environment
         run: echo "skip"
+    
